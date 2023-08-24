@@ -52,3 +52,27 @@ The context folder stores all of the React context files that are used across th
 
 ### `data`
 The data folder is for storing data assets such as JSON files that contain information used in the code (store items, theme information, etc). This folder also store a file that contains global constant variables.
+
+## Workflow
+
+### Branches
+
+* `main` - this branch contains the production build. Updates made to this branch will be deployed to GitHub Pages. You should merge **only `dev` branch** to `main` and only if you want to deploy a new release. This would usually happen at the end of a sprint.
+
+* `dev` - this branch has the last working state of the application. You must create your branches based on the `dev` branch, **NOT `main`**. You must also merge your branches into `dev` branch, **NOT `main`**.
+
+* `feature/*`, `fix/*`, `refactor/*` - branches that you create every time you take a new feature into work. You must create these branches based on `dev` and merge them to `dev`. You should try to merge them back as soon as you have a working feature so that everyone can have an up-to-date version of the project state.
+
+* `gh-pages` - this branch consists of project build. You should never push to this branch directly. It will be updated automatically after  `main` branch is changed.
+
+### Step-by-step workflow
+
+1. Switch to the dev branch and pull the latest changes.
+2. Create a new branch for your feature. For example, `feature/landing-page`.
+3. Make changes to the created branch, commit them, and push them to GitHub.
+4. Go to the repository page on GitHub. Click **Create pull request** at the top. Choose `dev` branch as the branch for your changes to be merged into.
+5. Send the pull request link to chat and wait for review.
+6. If there are issues highlighted by the reviewer, fix or discuss them.
+7. When a pull request has at least one approval, you can click on "Merge branch". Resolve merge conflicts if there are any.
+8. Test that your changes didn't break project on the `dev` branch; otherwise, create a new `fix/*` branch and start from the beginning of the workflow.
+9. Delete the branch that has been merged.
