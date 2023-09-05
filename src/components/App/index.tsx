@@ -3,7 +3,6 @@ import { ConfigProvider } from 'antd'
 import logo from '../../assets/logo.svg'
 import { ANT_THEME_TOKEN } from '../../data/constants'
 import './App.css'
-
 function App() {
   return (
     <ConfigProvider theme={{ token: ANT_THEME_TOKEN }}>
