@@ -9,14 +9,17 @@ type NasaContextProviderPropsType = {
   children: React.ReactNode
 }
 type NasaDataType = { NasaData: unknown[] | undefined }
+type NeoDataType = { NeoData: unknown[] | undefined }
 
-const NasaContext = React.createContext<NasaDataType>({
+const NasaContext = React.createContext<NasaDataType & NeoDataType>({
   NasaData: undefined,
+  NeoData: undefined,
 })
 export function NasaContextProvider({
   children,
 }: NasaContextProviderPropsType) {
   const [Data, setData] = useState<unknown[]>()
+  const [NeoData, setNeoData] = useState<unknown[]>()
   useEffect(() => {
     axios.get(`${process.env.PUBLIC_URL}/Meteorite_Landings.csv`).then(res => {
       papa.parse(res.data, {
@@ -26,9 +29,19 @@ export function NasaContextProvider({
         },
       })
     })
+    axios
+      .get(`${process.env.PUBLIC_URL}/NEO_Earth_Close_Approaches.csv`)
+      .then(res => {
+        papa.parse(res.data, {
+          header: true,
+          complete: parsedRes => {
+            setNeoData(parsedRes.data)
+          },
+        })
+      })
   }, [])
   return (
-    <NasaContext.Provider value={{ NasaData: Data }}>
+    <NasaContext.Provider value={{ NasaData: Data, NeoData: NeoData }}>
       {children}
     </NasaContext.Provider>
   )
