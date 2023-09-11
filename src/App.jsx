@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { createTheme, ThemeProvider, Button } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 // edit the primary color of the theme
 const theme = createTheme({
