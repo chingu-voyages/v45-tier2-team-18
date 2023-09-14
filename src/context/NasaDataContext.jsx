@@ -46,3 +46,4 @@ export function NasaDataContextProvider({ children }) {
 		</NasaDataContext.Provider>
 	);
 }
+export default NasaDataContext;

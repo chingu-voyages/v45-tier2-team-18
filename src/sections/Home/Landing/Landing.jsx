@@ -14,7 +14,7 @@ function Landing() {
 						Data on over 45k meteorites strikes and events research
 					</Typography>
 				</div>
-				<Button variant="contained" className="landing-button">
+				<Button variant="contained" className="custom-Button-styling">
 					Meteorite Landings
 				</Button>
 				<Button
@@ -29,6 +29,7 @@ function Landing() {
 							bgcolor: "secondary.dark",
 						},
 					}}
+					className="custom-Button-styling"
 				>
 					Near Earth Objects
 				</Button>
