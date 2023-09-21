@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import NasaDataContext from "../../../context/NasaDataContext";
 import { DataGrid } from "@mui/x-data-grid";
-
+import { getLocation } from "../../../services/GetLocation";
 const columns = [
 	{
 		field: "name",
@@ -9,17 +9,58 @@ const columns = [
 		flex: 1,
 		headerClassName: "table-header",
 	},
-	{ field: "id", headerName: "ID", flex: 1 },
-	{ field: "nametype", headerName: "NAMETYPE", flex: 1 },
-	{ field: "recclass", headerName: "RECCLASS", flex: 1 },
-	{ field: "mass (g)", headerName: "MASS", flex: 1 },
-	{ field: "fall", headerName: "FALL", flex: 1 },
-	{ field: "year", headerName: "YEAR", flex: 1 },
-	{ field: "country", headerName: "COUNTRY", flex: 1 },
+	{
+		field: "id",
+		headerName: "ID",
+		flex: 1,
+		renderCell: (params) => (params.value === "" ? "-" : params.value),
+	},
+	{
+		field: "nametype",
+		headerName: "NAMETYPE",
+		flex: 1,
+		renderCell: (params) => (params.value === "" ? "-" : params.value),
+	},
+	{
+		field: "recclass",
+		headerName: "RECCLASS",
+		flex: 1,
+		renderCell: (params) => (params.value === "" ? "-" : params.value),
+	},
+	{
+		field: "mass (g)",
+		headerName: "MASS",
+		flex: 1,
+		renderCell: (params) => (params.value === "" ? "-" : params.value),
+	},
+	{
+		field: "fall",
+		headerName: "FALL",
+		flex: 1,
+		renderCell: (params) => (params.value === "" ? "-" : params.value),
+	},
+	{
+		field: "year",
+		headerName: "YEAR",
+		flex: 1,
+		renderCell: (params) => (params.value === "" ? "-" : params.value),
+	},
+	{
+		field: "GeoLocation",
+		headerName: "COUNTRY",
+		flex: 1,
+		renderCell: (params) => {
+			let location = params.value.replace(/(\(|\))/g, "").split(", ");
+			return getLocation(location[0], location[1]);
+		},
+	},
+	{ field: "reclat", headerName: "RECLAT", flex: 1 },
+	{ field: "reclong", headerName: "RECLONG", flex: 1 },
 ];
 
 function MeteoritesTable() {
 	const { Meteorites } = useContext(NasaDataContext);
+
 	return (
 		<div style={{ height: 600, width: "100%" }}>
 			<DataGrid
