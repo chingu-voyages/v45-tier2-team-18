@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-export function getLocation(lat, lon) {
-	let [country, setCountry] = useState("Country Is");
+function useLocation(lat, lon) {
+	const [country, setCountry] = useState("Country Is");
 	var config = {
 		method: "get",
 		url: `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=${
@@ -19,3 +19,4 @@ export function getLocation(lat, lon) {
 		});
 	return country;
 }
+export default useLocation;

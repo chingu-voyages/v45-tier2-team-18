@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import NasaDataContext from "../../../context/NasaDataContext";
 import { DataGrid } from "@mui/x-data-grid";
-import { getLocation } from "../../../services/GetLocation";
+import useLocation from "../../../services/use-location";
+import { useSearchParams } from "react-router-dom";
 const columns = [
 	{
 		field: "name",
@@ -51,7 +52,7 @@ const columns = [
 		flex: 1,
 		renderCell: (params) => {
 			let location = params.value.replace(/(\(|\))/g, "").split(", ");
-			return getLocation(location[0], location[1]);
+			return useLocation(location[0], location[1]);
 		},
 	},
 	{ field: "reclat", headerName: "RECLAT", flex: 1 },
@@ -60,11 +61,12 @@ const columns = [
 
 function MeteoritesTable() {
 	const { Meteorites } = useContext(NasaDataContext);
+	const [searchParams, setSearchParams] = useSearchParams("");
 
 	return (
 		<div style={{ height: 600, width: "100%" }}>
 			<DataGrid
-				rows={Meteorites}
+				rows={Meteorites(searchParams)}
 				getRowId={(row) => row.name}
 				disableColumnMenu={true}
 				disableRowSelectionOnClick={true}

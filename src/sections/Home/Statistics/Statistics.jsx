@@ -1,15 +1,13 @@
-import * as React from "react";
+import React, { useState } from "react";
 import "./Statistics.css";
-import { Paper, Typography, Grid, InputAdornment } from "@mui/material";
+import { Paper, Typography, Grid } from "@mui/material";
 import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { CalendarIcon } from "@mui/x-date-pickers";
 
 function Statistics() {
-	const [value, setValue] = React.useState(dayjs("2022-04-17"));
-
+	const [value, setValue] = useState(dayjs("2022-04-17"));
 	return (
 		<Paper
 			elevation={14}

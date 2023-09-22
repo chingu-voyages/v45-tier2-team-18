@@ -3,11 +3,14 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { NasaDataContextProvider } from "./context/NasaDataContext.jsx";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
-		<NasaDataContextProvider>
-			<App />
-		</NasaDataContextProvider>
+		<BrowserRouter>
+			<NasaDataContextProvider>
+				<App />
+			</NasaDataContextProvider>
+		</BrowserRouter>
 	</React.StrictMode>
 );

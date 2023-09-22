@@ -1,6 +1,7 @@
+import React from "react";
 import "./Landing.css";
 import Earth from "../../../assets/Ourspaceship-Africa-2k-2.png";
-import Statistics from "../Statistics/Statistics";
+const Statistics = React.lazy(() => import("../Statistics/Statistics"));
 import { Container, Typography, Button } from "@mui/material";
 function Landing() {
 	return (
