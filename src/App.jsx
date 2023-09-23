@@ -2,6 +2,7 @@ import "./App.css";
 import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
 import Home from "./sections/Home/Home";
 import Tables from "./sections/Tables/Tables";
+import Graphs from "./sections/Graphs/Graphs";
 
 // edit the primary color of the theme
 const theme = createTheme({
@@ -23,6 +24,7 @@ function App() {
 		<ThemeProvider theme={responsiveFontSizes(theme)}>
 			<Home />
 			<Tables />
+			<Graphs />
 		</ThemeProvider>
 	);
 }

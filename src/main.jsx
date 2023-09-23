@@ -6,11 +6,11 @@ import { NasaDataContextProvider } from "./context/NasaDataContext.jsx";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<NasaDataContextProvider>
-				<App />
-			</NasaDataContextProvider>
-		</BrowserRouter>
-	</React.StrictMode>
+	// <React.StrictMode>
+	<BrowserRouter>
+		<NasaDataContextProvider>
+			<App />
+		</NasaDataContextProvider>
+	</BrowserRouter>
+	// </React.StrictMode>
 );
