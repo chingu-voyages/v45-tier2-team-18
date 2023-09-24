@@ -8,7 +8,7 @@ const MeteoritesTable = React.lazy(() =>
 
 function Tables() {
 	return (
-		<Container sx={{ padding: "70px 0" }}>
+		<Container sx={{ padding: "70px auto", margin: "40px auto" }}>
 			<React.Suspense fallback="Loading...">
 				<Search />
 				<MeteoritesTable />

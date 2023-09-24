@@ -108,14 +108,14 @@ function Charts() {
 
 	return (
 		<Grid container sx={{ padding: 1 }}>
-			<Grid item sm={12} md={6}>
+			<Grid item xs={12} md={6}>
 				<Line
 					data={yearData}
 					options={options}
 					style={{ width: "100%", height: "100%", margin: 10 }}
 				/>
 			</Grid>
-			<Grid item sm={12} md={6}>
+			<Grid item xs={12} md={6}>
 				<Line
 					data={recclassData}
 					options={options}
