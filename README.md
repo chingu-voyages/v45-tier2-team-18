@@ -1,28 +1,23 @@
-# voyage-tasks
+# Nasa Fireball
+## Overview
+Nasa Fireball is a project created to help space lovers to explore more information about meteorite strikes based on nasa data. You can find all known meteorite landings in the 21st century, and filter it to get the specific information you need. You can also find graphs to visualize the data you got from the filters.
+## Features
+- All known meteorite landings in one table
+- filtering the data to get what you need
+- visualizing the data in graphical way
+## Running The Project
+You can run the project by:
+- get project clone 
+- cd v45-tier2-team-18
+- npm install
+- npm run dev
+  
+[Live Preview](https://chingu-voyages.github.io/v45-tier2-team-18/)
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
-
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
-
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
-
-> Own it & Make it your Own!
-
-## Team Documents
-
-You may find these helpful as you work together to organize your project.
-
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
-
-Meeting Agenda templates (located in the `/docs` directory in this repo):
-
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+## Dependencies
+- [vite](https://vitejs.dev/)
+- [React Material Ui](https://mui.com/material-ui/)
+- [Chart.js](https://www.chartjs.org/)
+- [React Chart.js](https://react-chartjs-2.js.org/)
+- [Geoapify](https://www.geoapify.com/)
+- [React js](https://react.dev/)
