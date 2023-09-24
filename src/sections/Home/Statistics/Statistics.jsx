@@ -1,15 +1,15 @@
 import React, { useState, useContext } from "react";
 import "./Statistics.css";
+import { useFilteredData } from "../../../hooks/use-filtered-data";
 import { Paper, Typography, Grid } from "@mui/material";
 import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import NasaDataContext from "../../../context/NasaDataContext";
 
 function Statistics() {
 	const [value, setValue] = useState(dayjs("2013"));
-	const { unfilteredData } = useContext(NasaDataContext);
+	const unFilteredMeteorites = useFilteredData(false);
 	const maxYear = dayjs("2013");
 	return (
 		<Paper
@@ -22,7 +22,10 @@ function Statistics() {
 					<div className="statistics-text">
 						<Typography variant="string">Meteoritic material falls</Typography>
 						<Typography variant="h2" className="meteorites-by-year">
-							{unfilteredData.filter((ele) => ele.year == value.year()).length}
+							{
+								unFilteredMeteorites.filter((ele) => ele.year == value.year())
+									.length
+							}
 						</Typography>
 						<Typography variant="string" className="source">
 							Source: NASA Open Data Portal

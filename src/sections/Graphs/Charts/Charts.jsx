@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import NasaDataContext from "../../../context/NasaDataContext";
+import React from "react";
+import { useFilteredData } from "../../../hooks/use-filtered-data";
 import { Bar, Line, Pie } from "react-chartjs-2";
 
 import {
@@ -25,7 +25,7 @@ Chart.register(
 );
 
 function Charts() {
-	const { Meteorites } = useContext(NasaDataContext);
+	const Meteorites = useFilteredData();
 	const years = {};
 	const recclass = {};
 	const mass = {
@@ -57,18 +57,16 @@ function Charts() {
 		},
 	};
 	// edit the years object to create a proper data to the Line component
-	Meteorites()
-		.sort((a, b) => a.year - b.year)
-		.map((ele) => {
-			if (ele.year in years) {
-				years[ele.year] += 1;
-			} else {
-				years[ele.year] = 1;
-			}
-		});
+	Meteorites.sort((a, b) => a.year - b.year).map((ele) => {
+		if (ele.year in years) {
+			years[ele.year] += 1;
+		} else {
+			years[ele.year] = 1;
+		}
+	});
 
 	// edit the recclass object to create a proper data to the Line component
-	Meteorites().map((ele) => {
+	Meteorites.map((ele) => {
 		if (ele.recclass in recclass) {
 			recclass[ele.recclass] += 1;
 		} else {
@@ -76,7 +74,7 @@ function Charts() {
 		}
 	});
 
-	Meteorites().map((ele) => {
+	Meteorites.map((ele) => {
 		Object.keys(mass).map((key) => {
 			if (
 				ele["mass (g)"] >= Number(key.split("-")[0]) &&
