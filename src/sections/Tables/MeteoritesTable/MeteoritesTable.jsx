@@ -9,42 +9,56 @@ const columns = [
 		headerName: "NAME",
 		flex: 1,
 		headerClassName: "table-header",
+		sortable: false,
+		description: "Name",
 	},
 	{
 		field: "id",
 		headerName: "ID",
 		flex: 1,
 		renderCell: (params) => (params.value === "" ? "-" : params.value),
+		sortable: false,
+		description: "ID",
 	},
 	{
 		field: "nametype",
 		headerName: "NAMETYPE",
 		flex: 1,
 		renderCell: (params) => (params.value === "" ? "-" : params.value),
+		sortable: false,
+		description: "Nametype",
 	},
 	{
 		field: "recclass",
 		headerName: "RECCLASS",
 		flex: 1,
 		renderCell: (params) => (params.value === "" ? "-" : params.value),
+		sortable: false,
+		description: "Recclass",
 	},
 	{
 		field: "mass (g)",
 		headerName: "MASS",
 		flex: 1,
 		renderCell: (params) => (params.value === "" ? "-" : params.value),
+		sortable: false,
+		description: "Mass",
 	},
 	{
 		field: "fall",
 		headerName: "FALL",
 		flex: 1,
 		renderCell: (params) => (params.value === "" ? "-" : params.value),
+		sortable: false,
+		description: "Fall",
 	},
 	{
 		field: "year",
 		headerName: "YEAR",
 		flex: 1,
-		renderCell: (params) => (params.value === "" ? "-" : params.value),
+		renderCell: (params) => (params.value === "" ? "" : params.value),
+		sortable: false,
+		description: "Year",
 	},
 	{
 		field: "GeoLocation",
@@ -54,9 +68,23 @@ const columns = [
 			let location = params.value.replace(/(\(|\))/g, "").split(", ");
 			return useLocation(location[0], location[1]);
 		},
+		sortable: false,
+		description: "Country",
 	},
-	{ field: "reclat", headerName: "RECLAT", flex: 1 },
-	{ field: "reclong", headerName: "RECLONG", flex: 1 },
+	{
+		field: "reclat",
+		headerName: "RECLAT",
+		flex: 1,
+		sortable: false,
+		description: "Reclat",
+	},
+	{
+		field: "reclong",
+		headerName: "RECLONG",
+		flex: 1,
+		sortable: false,
+		description: "Reclong",
+	},
 ];
 
 function MeteoritesTable() {
