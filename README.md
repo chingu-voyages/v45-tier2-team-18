@@ -21,3 +21,4 @@ You can run the project by:
 - [React Chart.js](https://react-chartjs-2.js.org/)
 - [Geoapify](https://www.geoapify.com/)
 - [React js](https://react.dev/)
+- [Nasa Meteorite Landings File](https://github.com/chingu-voyages/v45-tier2-team-18/tree/main/public)
