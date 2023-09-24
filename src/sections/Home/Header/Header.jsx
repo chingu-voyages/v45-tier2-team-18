@@ -10,8 +10,8 @@ import { Container } from "@mui/material";
 
 function Header() {
 	return (
-		<Box sx={{ flexGrow: 1 }}>
-			<AppBar position="relative" color="secondary">
+		<Box sx={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 1000 }}>
+			<AppBar color="secondary">
 				<Container>
 					<Toolbar disableGutters>
 						<IconButton
@@ -19,6 +19,11 @@ function Header() {
 							edge="start"
 							color="primary"
 							aria-label="menu"
+							onClick={() => {
+								document
+									.getElementById("landing")
+									.scrollIntoView({ behavior: "smooth" });
+							}}
 						>
 							<LanguageIcon fontSize="large" />
 						</IconButton>

@@ -3,7 +3,7 @@ import Landing from "./Landing/Landing";
 
 function Home() {
 	return (
-		<div className="Home">
+		<div className="Home" style={{ position: "relative" }}>
 			<Header />
 			<Landing />
 		</div>

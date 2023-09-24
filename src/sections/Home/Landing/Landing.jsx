@@ -2,11 +2,11 @@ import React from "react";
 import "./Landing.css";
 import Earth from "../../../assets/Ourspaceship-Africa-2k-2.png";
 const Statistics = React.lazy(() => import("../Statistics/Statistics"));
-import { Container, Typography, Button } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 function Landing() {
 	return (
-		<div className="landing">
-			<Container className="landing-container">
+		<div className="landing" id="landing">
+			<Container className="landing-container" sx={{ padding: 10 }}>
 				<div className="text-box">
 					<Typography variant="h2" className="text-title">
 						Meteors and Meteorites

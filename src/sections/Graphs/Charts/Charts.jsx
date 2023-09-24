@@ -115,7 +115,7 @@ function Charts() {
 			{
 				data: Object.values(mass),
 				fill: false,
-				borderColor: "rgb(75, 192, 192)",
+				backgroundColor: "rgb(75, 192, 192)",
 				tension: 0.1,
 			},
 		],

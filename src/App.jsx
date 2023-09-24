@@ -3,6 +3,7 @@ import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
 import Home from "./sections/Home/Home";
 import Tables from "./sections/Tables/Tables";
 import Graphs from "./sections/Graphs/Graphs";
+import Footer from "./sections/Footer/Footer";
 
 // edit the primary color of the theme
 const theme = createTheme({
@@ -25,6 +26,7 @@ function App() {
 			<Home />
 			<Tables />
 			<Graphs />
+			<Footer />
 		</ThemeProvider>
 	);
 }
