@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import NasaDataContext from "../../../context/NasaDataContext";
-import { Line } from "react-chartjs-2";
+import { Bar, Line, Pie } from "react-chartjs-2";
 
 import {
 	Chart,
@@ -9,6 +9,7 @@ import {
 	PointElement,
 	LineElement,
 	BarElement,
+	ArcElement,
 	Tooltip,
 } from "chart.js";
 import { Grid } from "@mui/material";
@@ -19,6 +20,7 @@ Chart.register(
 	PointElement,
 	LineElement,
 	BarElement,
+	ArcElement,
 	Tooltip
 );
 
@@ -26,6 +28,14 @@ function Charts() {
 	const { Meteorites } = useContext(NasaDataContext);
 	const years = {};
 	const recclass = {};
+	const mass = {
+		"0-100": 0,
+		"100-1000": 0,
+		"1000-10000": 0,
+		"10000-100000": 0,
+		"100000-1000000": 0,
+		"1000000-10000000": 0,
+	};
 
 	const tooltipLabelCallback = (context) => {
 		let label = context.dataset.label || "";
@@ -66,6 +76,17 @@ function Charts() {
 		}
 	});
 
+	Meteorites().map((ele) => {
+		Object.keys(mass).map((key) => {
+			if (
+				ele["mass (g)"] >= Number(key.split("-")[0]) &&
+				ele["mass (g)"] <= Number(key.split("-")[1])
+			) {
+				mass[key] += 1;
+			}
+		});
+	});
+
 	const yearData = {
 		labels: Object.keys(years),
 		datasets: [
@@ -83,6 +104,17 @@ function Charts() {
 			{
 				data: Object.values(recclass),
 				fill: false,
+				backgroundColor: ["rgb(75, 192, 192)", "#eee"],
+				tension: 0.1,
+			},
+		],
+	};
+	const massData = {
+		labels: Object.keys(mass),
+		datasets: [
+			{
+				data: Object.values(mass),
+				fill: false,
 				borderColor: "rgb(75, 192, 192)",
 				tension: 0.1,
 			},
@@ -90,8 +122,8 @@ function Charts() {
 	};
 
 	return (
-		<Grid container sx={{ padding: 1 }}>
-			<Grid item xs={12} md={6}>
+		<Grid container sx={{ padding: 1, alignItems: "center" }}>
+			<Grid item xs={12}>
 				<Line
 					data={yearData}
 					options={options}
@@ -99,8 +131,14 @@ function Charts() {
 				/>
 			</Grid>
 			<Grid item xs={12} md={6}>
-				<Line
+				<Pie
 					data={recclassData}
+					style={{ width: "100%", height: "100%", margin: 10 }}
+				/>
+			</Grid>
+			<Grid item xs={12} md={6}>
+				<Bar
+					data={massData}
 					options={options}
 					style={{ width: "100%", height: "100%", margin: 10 }}
 				/>
