@@ -15,10 +15,11 @@ You can run the project by:
 [Live Preview](https://chingu-voyages.github.io/v45-tier2-team-18/)
 
 ## Dependencies
-- [vite](https://vitejs.dev/)
+- [Vite](https://vitejs.dev/)
 - [React Material Ui](https://mui.com/material-ui/)
 - [Chart.js](https://www.chartjs.org/)
 - [React Chart.js](https://react-chartjs-2.js.org/)
 - [Geoapify](https://www.geoapify.com/)
+- [Axios](https://axios-http.com/)
 - [React js](https://react.dev/)
 - [Nasa Meteorite Landings File](https://github.com/chingu-voyages/v45-tier2-team-18/tree/main/public)
