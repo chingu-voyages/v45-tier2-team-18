@@ -19,12 +19,6 @@
 	font-weight: bold !important;
 }
 
-.custom-Button-styling {
-	border-radius: 20px !important;
-	padding: 10px 20px !important;
-	text-transform: capitalize !important;
-}
-
 .image-container {
 	position: absolute;
 	display: flex;
