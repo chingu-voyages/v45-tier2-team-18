@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import NasaDataContext from "../../../context/NasaDataContext";
-import { Bar, Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 import {
 	Chart,
@@ -11,8 +11,8 @@ import {
 	BarElement,
 	Tooltip,
 } from "chart.js";
-import { useSearchParams } from "react-router-dom";
 import { Grid } from "@mui/material";
+
 Chart.register(
 	CategoryScale,
 	LinearScale,
@@ -22,15 +22,8 @@ Chart.register(
 	Tooltip
 );
 
-// Chart.register(LinearScale);
-
-// Chart.register(PointElement);
-
-// Chart.register(LineElement);
-// Chart.register(Tooltip);
 function Charts() {
 	const { Meteorites } = useContext(NasaDataContext);
-	const [searchParams, setSearchParams] = useSearchParams();
 	const years = {};
 	const recclass = {};
 
@@ -53,8 +46,8 @@ function Charts() {
 			},
 		},
 	};
-
-	Meteorites(searchParams)
+	// edit the years object to create a proper data to the Line component
+	Meteorites()
 		.sort((a, b) => a.year - b.year)
 		.map((ele) => {
 			if (ele.year in years) {
@@ -63,7 +56,9 @@ function Charts() {
 				years[ele.year] = 1;
 			}
 		});
-	Meteorites(searchParams).map((ele) => {
+
+	// edit the recclass object to create a proper data to the Line component
+	Meteorites().map((ele) => {
 		if (ele.recclass in recclass) {
 			recclass[ele.recclass] += 1;
 		} else {
@@ -90,18 +85,6 @@ function Charts() {
 				fill: false,
 				borderColor: "rgb(75, 192, 192)",
 				tension: 0.1,
-			},
-		],
-	};
-
-	const massData = {
-		labels: ["January", "February", "March", "April", "May", "June"],
-		datasets: [
-			{
-				label: "Revenue",
-				backgroundColor: "rgba(75,192,192,1)",
-				borderWidth: 2,
-				data: [10, 20, 30],
 			},
 		],
 	};

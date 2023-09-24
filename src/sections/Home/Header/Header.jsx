@@ -25,7 +25,16 @@ function Header() {
 						<Typography variant="string" component="div" sx={{ flexGrow: 1 }}>
 							NASA FIREBALL
 						</Typography>
-						<IconButton size="large" color="inherit" aria-label="search">
+						<IconButton
+							size="large"
+							color="inherit"
+							aria-label="search"
+							onClick={() => {
+								document
+									.getElementById("search")
+									.scrollIntoView({ behavior: "smooth" });
+							}}
+						>
 							<SearchIcon />
 						</IconButton>
 					</Toolbar>

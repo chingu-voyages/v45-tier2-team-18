@@ -6,12 +6,11 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import NasaDataContext from "../../../context/NasaDataContext";
-import { useSearchParams } from "react-router-dom";
 
 function Statistics() {
-	const [value, setValue] = useState(dayjs("2022-04-17"));
-	const { Meteorites } = useContext(NasaDataContext);
-	const [searchParams, setSearchParams] = useSearchParams();
+	const [value, setValue] = useState(dayjs("2013"));
+	const { unfilteredData } = useContext(NasaDataContext);
+	const maxYear = dayjs("2013");
 	return (
 		<Paper
 			elevation={14}
@@ -23,11 +22,7 @@ function Statistics() {
 					<div className="statistics-text">
 						<Typography variant="string">Meteoritic material falls</Typography>
 						<Typography variant="h2" className="meteorites-by-year">
-							{
-								Meteorites(searchParams).filter(
-									(ele) => ele.year == value.year()
-								).length
-							}
+							{unfilteredData.filter((ele) => ele.year == value.year()).length}
 						</Typography>
 						<Typography variant="string" className="source">
 							Source: NASA Open Data Portal
@@ -51,7 +46,7 @@ function Statistics() {
 									},
 								}}
 								views={["year"]}
-								disableFuture
+								maxDate={maxYear}
 								value={value}
 								onChange={(newValue) => setValue(newValue)}
 							/>

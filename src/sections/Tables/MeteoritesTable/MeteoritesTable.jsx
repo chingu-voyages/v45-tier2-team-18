@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import "./MeteoritesTable.css";
 import NasaDataContext from "../../../context/NasaDataContext";
 import { DataGrid } from "@mui/x-data-grid";
-import useLocation from "../../../services/use-location";
+import useLocation from "../../../hooks/use-location";
 import { useSearchParams } from "react-router-dom";
-import { Box } from "@mui/material";
 const columns = [
 	{
 		field: "name",
@@ -73,7 +72,7 @@ function MeteoritesTable() {
 			}}
 		>
 			<DataGrid
-				rows={Meteorites(searchParams)}
+				rows={Meteorites()}
 				getRowId={(row) => row.name}
 				disableColumnMenu={true}
 				disableRowSelectionOnClick={true}
